@@ -1,4 +1,5 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */ 
+
 import { aj } from '../../../config/arcjet.js'
 export const SecurityMiddleware = async (req, res, next) => {
   try {
