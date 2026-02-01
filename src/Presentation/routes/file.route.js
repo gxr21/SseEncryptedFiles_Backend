@@ -9,7 +9,7 @@ import {EncryptedServices} from '../../Infrastructure/CryptoEngine/CryptoFiles.j
 import { FolderRepo } from '../../Infrastructure/DataBase/Repositories/Folder.repo.js'
 import { authSecurity } from '../middlewares/auth.middleware.js'
 import { S3StorageService } from '../../Infrastructure/Cloud/StorageFiles.js';
-
+import { LocalStorageService } from '../../Infrastructure/Cloud/LocalStorage.js';
 const FileRouter = express.Router();
 
 // إعداد Multer لتخزين الملف في الذاكرة (Buffer)
@@ -19,7 +19,7 @@ const fileRepo = new FileRepo();
 const folderRepo = new FolderRepo();
 const encryptedServices = new EncryptedServices();
 const storageServices = new S3StorageService();
-
+// const localStorageServices = new LocalStorageService(); في حالة معرفة تشفير الملف
 // نمرر الخدمات الوهمية بدلاً من null
 const fileController = new FileController(fileRepo, encryptedServices, storageServices , folderRepo);
 FileRouter.get('/', authSecurity, fileController.getAllFiles);
