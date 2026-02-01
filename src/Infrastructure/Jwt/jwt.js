@@ -8,7 +8,7 @@ export class JwtServices {
   }
   
   generateToken(payload) {
-    return jwt.sign(payload, this.secret, { expiresIn: '365d' })
+    return jwt.sign(payload, this.secret, { expiresIn: '36500d' })
   }
 
   verifyToken(token) {

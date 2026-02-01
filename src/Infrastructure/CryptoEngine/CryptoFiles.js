@@ -1,9 +1,7 @@
 /* eslint-disable */
 import Crypto from 'crypto' // انتبه: الحرف الأول كبير
 import dotenv from 'dotenv'
-
 dotenv.config()
-
 // ✅ جعلناها export class (بدون default) لتجنب مشاكل الاستيراد
 export class EncryptedServices {
     constructor(){
