@@ -2,7 +2,7 @@
 import express from 'express'
 import { AuthController } from '../controllers/auth.controller.js'
 // import { arcjetMiddleware } from '../../../config/arcjet.js'
-import { SecurityMiddleware } from '../middlewares/Arcjet.middleware.js'
+import { SecurityMiddleware } from '../middlewares/arcjet.middleware.js'
 import { authSecurity } from '../middlewares/auth.middleware.js'
 const AuthRouter = express.Router()
 const authController = new AuthController()
