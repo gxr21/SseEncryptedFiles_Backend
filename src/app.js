@@ -12,15 +12,24 @@ import FileRouter from './Presentation/routes/file.route.js'
 // import FolderRouter from './Presentation/routes/folder.route.js'
 const app = express()
 // Cors FrontEnd Development
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://localhost:3000",
+]
 if (NODE_ENV === 'development') {
-  app.use(
-    cors({
-      origin: '"http://localhost:5173"',
-      credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      allowedHeaders: ['Content-Type', 'Authorization']
-    })
-  )
+  app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // للسماح بالكوكيز والتوكن
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 }
 // Middlewares
 app.use(express.json())
