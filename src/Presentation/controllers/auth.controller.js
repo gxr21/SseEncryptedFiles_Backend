@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // ==== Auth Controller =====
 // ENCAPSOULATION HEADER 
-import { CreateUserUseCase } from '../../Application/UseCases/Auth/createUserUseCase.js'
+import { CreateUserUseCase } from '../../Application/UseCases/Auth/createuserUseCase.js'
 import { UserRepo } from '../../Infrastructure/DataBase/Repositories/User.repo.js'
 import { LoginUseCase } from '../../Application/UseCases/Auth/LoginUseCase.js'
 import { JwtServices } from '../../Infrastructure/Jwt/jwt.js'
