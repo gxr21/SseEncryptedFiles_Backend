@@ -17,8 +17,21 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "http://localhost:3000",
 ]
-if (NODE_ENV === 'development') {
-  app.use(cors({
+// if (NODE_ENV === 'development') {
+//   app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true, // للسماح بالكوكيز والتوكن
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+// }
+app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -30,7 +43,6 @@ if (NODE_ENV === 'development') {
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-}
 // Middlewares
 app.use(express.json())
 // ==== RESTFUL API ====
