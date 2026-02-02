@@ -9,7 +9,7 @@ import {EncryptedServices} from '../../Infrastructure/CryptoEngine/CryptoFiles.j
 import { FolderRepo } from '../../Infrastructure/DataBase/Repositories/Folder.repo.js'
 import { authSecurity } from '../middlewares/auth.middleware.js'
 import { S3StorageService } from '../../Infrastructure/Cloud/StorageFiles.js';
-// import { LocalStorageService } from '../../Infrastructure/Cloud/LocalStorage.js';
+import { LocalStorageService } from '../../Infrastructure/Cloud/LocalStorage.js';
 const FileRouter = express.Router();
 
 // إعداد Multer لتخزين الملف في الذاكرة (Buffer)
